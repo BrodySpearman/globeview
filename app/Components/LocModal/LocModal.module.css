@@ -13,14 +13,15 @@
     font-size: larger;
 }
 
-.lat, .lon {
+.lat,
+.lon {
     margin: 0;
 }
 
-.lat {
+.lon {
     color: #4caf50;
 }
 
-.lon {
+.lat {
     color: #ff5e00;
 }
