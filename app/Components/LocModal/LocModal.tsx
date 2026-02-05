@@ -22,8 +22,6 @@ export default function LocModal({ coordinates }: { coordinates: Coordinate }) {
             <h2 className={styles.title}>You are at:</h2>
             <p className={styles.lat}>Latitude: {lat.toFixed(4)}° {latDir}</p>
             <p className={styles.lon}>Longitude: {lon.toFixed(4)}° {lonDir}</p>
-            <p className={styles.lon}>Longitude: {lon.toFixed(4)}° {lonDir}</p>
-            <p className={styles.lat}>Latitude: {lat.toFixed(4)}° {latDir}</p>
         </div>
     );
 }
