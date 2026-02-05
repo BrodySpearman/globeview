@@ -9,7 +9,7 @@ const MajorMonoDisplay = Major_Mono_Display({
 
 const jost = Jost({
     subsets: ["latin"],
-    weight: "200",
+    weight: ["200", "400"],
 });
 
 
@@ -60,9 +60,9 @@ export default function LogoBar() {
                 </h1>
                 <p className={`${styles.timeText} ${jost.className}`}>{formattedTime}</p>
             </div>
-            <div className={`${styles.bezel} ${collapsed ? styles.collapsed : styles.expanded}`}>
+            <div className={`${jost.className} ${styles.bezel} ${collapsed ? styles.collapsed : styles.expanded}`}>
                 <button onClick={collapseClick}>
-                    {collapsed ? 'Expand' : 'Collapse'}
+                    {collapsed ? 'EXPAND' : 'COLLAPSE'}
                 </button>
             </div>
         </div>

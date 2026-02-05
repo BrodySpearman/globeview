@@ -1,6 +1,8 @@
 'use client';
 import styles from "./WorldMap.module.css";
 import PinIcon from "../../../public/PinIcon.svg";
+import { reverseGeocode } from "../Features/ReverseGeocode";
+import { formattedResponse } from "../Features/ReverseGeocode";
 
 import dynamic from "next/dynamic";
 import React, { JSX, useCallback } from "react";
@@ -12,6 +14,7 @@ import "ol/ol.css";
 import "rlayers/control/layers.css"
 import type { RView } from "../../../node_modules/rlayers/dist/RMap";
 import { RMap, ROSM, RControl, RLayerVector, RFeature, RStyle } from "rlayers";
+import { set } from "ol/transform";
 
 const origin = [-95.92, 41.26];
 const initial: RView = { center: fromLonLat(origin), zoom: 6 };
@@ -24,6 +27,7 @@ const LocModal = dynamic(() => import("../LocModal/LocModal"), {
 export default function WorldMap(): JSX.Element {
   const [loc, setLoc] = React.useState(origin);
   const [view, setView] = React.useState(initial);
+  const [cityInfo, setCityInfo] = React.useState<formattedResponse | null>(null);
 
   // Could maybe only need one of these states
   const [showModal, setShowModal] = React.useState(false);
@@ -31,8 +35,8 @@ export default function WorldMap(): JSX.Element {
 
   return (
     <React.Fragment>
-      <RMap 
-        className="z-0 w-full h-screen" 
+      <RMap
+        className="z-0 w-full h-screen"
         initial={initial}
         view={[view, setView]}
         noDefaultControls={true}
@@ -41,17 +45,16 @@ export default function WorldMap(): JSX.Element {
           (e: MapBrowserEvent<PointerEvent | KeyboardEvent | WheelEvent>) => {
             const coord = e.map.getCoordinateFromPixel(e.pixel);
             const lonLat = toLonLat(coord);
+            const cityInfo = reverseGeocode(lonLat[1], lonLat[0], setCityInfo);
+            console.log(cityInfo);
 
             setLoc(lonLat);
             setShowModal(true);
             dropPin(true);
-
-            console.log("location: ", lonLat);
           },
           []
         )}
       >
-
         <ROSM />
         <RControl.RScaleLine />
         <RControl.RAttribution />
@@ -76,5 +79,5 @@ export default function WorldMap(): JSX.Element {
 
       </RMap>
     </React.Fragment>
-  );  
+  );
 }
