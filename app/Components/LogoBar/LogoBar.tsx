@@ -17,6 +17,7 @@ export default function LogoBar() {
 
     const [time, setTime] = useState(new Date());
     const [mounted, setMounted] = useState(false);
+    const [collapsed, setCollapsed] = useState(false);
 
     const options = {
         year: 'numeric' as const,
@@ -46,13 +47,24 @@ export default function LogoBar() {
     const currentDate = time.toLocaleDateString('en-US', options);
     const formattedDate = currentDate.replace(/\//g, '.');
 
+    const collapseClick = () => {
+        setCollapsed(!collapsed);
+    };
+
     return (
-        <div className={styles.logoContainer}>
-            <p className={`${styles.dateText} ${jost.className}`}>{formattedDate}</p>
-            <h1 className={`${styles.logoText} ${MajorMonoDisplay.className}`}>
-                Globeview
-            </h1>
-            <p className={`${styles.timeText} ${jost.className}`}>{formattedTime}</p>
+        <div className={styles.header}>
+            <div className={`${styles.logoContainer} ${collapsed ? styles.collapsed : styles.expanded}`}>
+                <p className={`${styles.dateText} ${jost.className}`}>{formattedDate}</p>
+                <h1 className={`${styles.logoText} ${MajorMonoDisplay.className}`}>
+                    Globeview
+                </h1>
+                <p className={`${styles.timeText} ${jost.className}`}>{formattedTime}</p>
+            </div>
+            <div className={`${styles.bezel} ${collapsed ? styles.collapsed : styles.expanded}`}>
+                <button onClick={collapseClick}>
+                    {collapsed ? 'Expand' : 'Collapse'}
+                </button>
+            </div>
         </div>
     );
 }

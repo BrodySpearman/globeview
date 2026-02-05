@@ -6,13 +6,97 @@
     right: 30%;
     min-width: 20rem;
     border-radius: 0 0 15px 15px;
-    z-index: 100;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
+    box-shadow: 0 0 10px rgba(56, 56, 56, 0.2);
     overflow: hidden;
 }
 
 .logoContainer>* {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.bezel button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bezel button:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.bezel button:disabled {
+    cursor: not-allowed;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bezel.collapsed,
+.logoContainer.collapsed,
+.bezel.expanded,
+.logoContainer.expanded {
+    transition-property: all;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
+}
+
+.logoContainer.collapsed {
+    overflow: hidden;
+    max-height: 0;
+}
+
+.bezel.collapsed {
+    top: 0;
+    transition-delay: .07s;
+    border-top: none;
+}
+
+.logoContainer.expanded {
+    max-height: 10rem;
+    transition-delay: .07s;
+}
+
+.bezel.expanded {
+    top: 1.77rem;
+}
+
+.bezel button {
+    border: none;
+    width: 100%;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 30%;
+    right: 30%;
+    min-width: 20rem;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(56, 56, 56, 0.2);
+}
+
+.bezel {
+    position: fixed;
+    top: 1.77rem;
+    left: 45%;
+    right: 45%;
+    text-align: center;
+    z-index: 99;
+    font-size: .7rem;
+    border-top: .3px solid rgba(255, 255, 255, 0.144);
+    background-color: rgba(15, 15, 15, 0.87);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 10px rgba(56, 56, 56, 0.2);
+    overflow: hidden;
+
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
