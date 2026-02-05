@@ -11,6 +11,13 @@
     overflow: hidden;
 }
 
+.logoContainer>* {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
 .dateText {
     font-size: .9rem;
     color: white;

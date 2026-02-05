@@ -1,15 +1,10 @@
 import styles from "./Logo.module.css";
-import { Major_Mono_Display, Jost, Figtree } from "next/font/google";
+import { Major_Mono_Display, Jost } from "next/font/google";
 import { useState, useEffect, useMemo } from "react";
 
 const MajorMonoDisplay = Major_Mono_Display({
     subsets: ["latin"],
     weight: "400",
-});
-
-const figtree = Figtree({
-    subsets: ["latin"],
-    weight: "300",
 });
 
 const jost = Jost({
