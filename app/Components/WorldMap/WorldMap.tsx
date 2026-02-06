@@ -1,8 +1,7 @@
 'use client';
 import styles from "./WorldMap.module.css";
 import PinIcon from "../../../public/PinIcon.svg";
-import { reverseGeocode } from "../Features/ReverseGeocode";
-import { formattedResponse } from "../Features/ReverseGeocode";
+
 
 import dynamic from "next/dynamic";
 import React, { JSX, useCallback } from "react";
@@ -27,7 +26,6 @@ const LocModal = dynamic(() => import("../LocModal/LocModal"), {
 export default function WorldMap(): JSX.Element {
   const [loc, setLoc] = React.useState(origin);
   const [view, setView] = React.useState(initial);
-  const [cityInfo, setCityInfo] = React.useState<formattedResponse | null>(null);
 
   // Could maybe only need one of these states
   const [showModal, setShowModal] = React.useState(false);
@@ -45,8 +43,6 @@ export default function WorldMap(): JSX.Element {
           (e: MapBrowserEvent<PointerEvent | KeyboardEvent | WheelEvent>) => {
             const coord = e.map.getCoordinateFromPixel(e.pixel);
             const lonLat = toLonLat(coord);
-            const cityInfo = reverseGeocode(lonLat[1], lonLat[0], setCityInfo);
-            console.log(cityInfo);
 
             setLoc(lonLat);
             setShowModal(true);
