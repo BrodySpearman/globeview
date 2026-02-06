@@ -1,0 +1,24 @@
+.locInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.city {
+    font-weight: 200;
+}
+
+.county {
+    font-size: 1rem;
+    color: #919191;
+}
+
+.state {
+    font-size: 1rem;
+    color: #919191;
+}
+
+.country {
+    font-weight: 200;
+}
