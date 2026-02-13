@@ -28,10 +28,9 @@ export default function LocInfo({ lat, lon }: { lat: number, lon: number }) {
 
     return (
         <div className={styles.locInfo}>
-            <p className={`${notoSansKr.className} ${styles.city}`}>{data.city}</p>
-            <p className={`${notoSansKr.className} ${styles.county}`}>{data.county}</p>
-            <p className={`${notoSansKr.className} ${styles.state}`}>{data.state}</p>
-            <p className={`${notoSansKr.className} ${styles.country}`}>{data.country}</p>
+            <p className={`${notoSansKr.className} ${styles.city}`}><span className={styles.underline}>{data.city}</span></p>
+            <p className={`${notoSansKr.className} ${styles.county}`}>{data.county}, {data.state}</p>
+            <p className={`${notoSansKr.className} ${styles.country}`}><span className={styles.underline}>{data.country}</span></p>
         </div>
     );
 }

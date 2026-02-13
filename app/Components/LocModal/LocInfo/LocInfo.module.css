@@ -5,6 +5,12 @@
     align-items: center;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
+
+
 .city {
     font-weight: 200;
 }
