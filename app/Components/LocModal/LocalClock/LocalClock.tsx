@@ -42,8 +42,9 @@ export default function LocalClock({ lat, lon }: { lat: number, lon: number }) {
     }
 
     return (
-        <div>
+        <div className={classes.localTimeContainer}>
             <p className={classes.localTime}>{formattedLocationTime}</p>
+            <p className={classes.tz}>({TZformat})</p>
         </div>
     );
 }
