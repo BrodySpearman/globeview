@@ -5,18 +5,24 @@
     align-items: center;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
+
+
 .city {
     font-weight: 200;
 }
 
 .county {
     font-size: 1rem;
-    color: #919191;
+    color: #9b9b9b;
 }
 
 .state {
     font-size: 1rem;
-    color: #919191;
+    color: #9b9b9b;
 }
 
 .country {

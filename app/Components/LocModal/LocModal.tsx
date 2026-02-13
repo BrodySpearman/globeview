@@ -2,6 +2,7 @@ import { Coordinate } from 'ol/coordinate';
 import styles from './LocModal.module.css';
 import { Noto_Sans_KR } from 'next/font/google';
 import LocInfo from './LocInfo/LocInfo';
+import LocalClock from './LocalClock/LocalClock';
 
 const notoSansKr = Noto_Sans_KR({ subsets: ['latin'], weight: ['300', '400'] });
 
@@ -21,6 +22,7 @@ export default function LocModal({ coordinates }: { coordinates: Coordinate }) {
             <LocInfo lat={lat} lon={lon} />
             <p className={styles.lat}>Latitude: {displayLat.toFixed(4)}° {latDir}</p>
             <p className={styles.lon}>Longitude: {displayLon.toFixed(4)}° {lonDir}</p>
+            <LocalClock lat={lat} lon={lon} />
         </div>
     );
 }
