@@ -14,6 +14,7 @@ import "rlayers/control/layers.css"
 import type { RView } from "../../../node_modules/rlayers/dist/RMap";
 import { RMap, ROSM, RControl, RLayerVector, RFeature, RStyle } from "rlayers";
 import { set } from "ol/transform";
+import Toolbox from "../Toolbox/Toolbox";
 
 const origin = [-95.92, 41.26];
 const initial: RView = { center: fromLonLat(origin), zoom: 6 };
@@ -55,6 +56,7 @@ export default function WorldMap(): JSX.Element {
         <RControl.RScaleLine />
         <RControl.RAttribution />
         <RControl.RZoomSlider />
+        <Toolbox />
 
         {/* On click features */}
         {showModal && <LocModal coordinates={loc} />}

@@ -5,7 +5,6 @@ export const FindLocalTimeZone = (lat: number, lon: number) => {
 
     const fetchTZ = async () => {
         const timezone = await find(lat, lon);
-        console.log(timezone);
         return timezone;
     }
 

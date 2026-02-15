@@ -12,9 +12,7 @@ const jost = Jost({
     weight: ["200", "400"],
 });
 
-
 export default function LogoBar() {
-
     const [time, setTime] = useState(new Date());
     const [mounted, setMounted] = useState(false);
     const [collapsed, setCollapsed] = useState(false);
@@ -43,13 +41,8 @@ export default function LogoBar() {
         return `${hours}:${minutes}:${seconds} ${ampm}`;
     }, [time, mounted]);
 
-
     const currentDate = time.toLocaleDateString('en-US', options);
     const formattedDate = currentDate.replace(/\//g, '.');
-
-    const collapseClick = () => {
-        setCollapsed(!collapsed);
-    };
 
     return (
         <div className={styles.header}>
@@ -61,7 +54,7 @@ export default function LogoBar() {
                 <p className={`${styles.timeText} ${jost.className}`}>{formattedTime}</p>
             </div>
             <div className={`${jost.className} ${styles.bezel} ${collapsed ? styles.collapsed : styles.expanded}`}>
-                <button onClick={collapseClick}>
+                <button onClick={() => setCollapsed(!collapsed)}>
                     {collapsed ? 'EXPAND' : 'COLLAPSE'}
                 </button>
             </div>
