@@ -12,9 +12,7 @@ const jost = Jost({
     weight: ["200", "400"],
 });
 
-
 export default function LogoBar() {
-
     const [time, setTime] = useState(new Date());
     const [mounted, setMounted] = useState(false);
     const [collapsed, setCollapsed] = useState(false);

@@ -8,7 +8,6 @@ import ExpandIcon from '../../../public/ToolboxSVG/Expand.svg';
 import CollapseIcon from '../../../public/ToolboxSVG/Collapse.svg';
 
 export default function Toolbox() {
-
     const [collapsed, setCollapsed] = useState(true);
 
     return (

@@ -23,7 +23,6 @@
     width: 1.5rem;
     height: 1.5rem;
     border-radius: .2rem;
-
 }
 
 .toolContainer>button:hover {
@@ -42,7 +41,6 @@
 
 .toolContainer.expanded {
     max-height: 10rem;
-    padding: .3rem .2rem .2rem .2rem;
 }
 
 .expandBtn,
