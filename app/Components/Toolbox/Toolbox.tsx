@@ -6,14 +6,24 @@ import { useState } from 'react';
 
 import ExpandIcon from '../../../public/ToolboxSVG/Expand.svg';
 import CollapseIcon from '../../../public/ToolboxSVG/Collapse.svg';
+import EraserIcon from '../../../public/ToolboxSVG/Eraser.svg';
 
 export default function Toolbox() {
     const [collapsed, setCollapsed] = useState(true);
+    const [activeTool, setActiveTool] = useState<string | null>(null);
+    const [erase, setErase] = useState(false);
 
     return (
         <div className={classes.toolboxContainer}>
+            {activeTool === 'freeDraw' &&
+                <div className={classes.eraserContainer}>
+                    <button className={erase ? classes.active : ''} onClick={() => { setErase(!erase) }}>
+                        <Image className={classes.eraserIcon} src={EraserIcon} alt="Eraser" />
+                    </button>
+                </div>
+            }
             <div className={`${classes.toolContainer} ${collapsed ? classes.collapsed : classes.expanded}`}>
-                <button>
+                <button className={activeTool === 'freeDraw' ? classes.active : ''} onClick={() => { activeTool === 'freeDraw' ? setActiveTool(null) : setActiveTool('freeDraw') }}>
                     <Image src={PenIcon} alt="Pen" style={{ filter: 'brightness(.5) invert(1)' }} />
                 </button>
                 <button></button>
