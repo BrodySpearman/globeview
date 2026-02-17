@@ -40,10 +40,11 @@
     z-index: 100;
     padding-top: .3rem;
     padding-left: .3rem;
+    padding-bottom: 0rem;
     padding-right: .3rem;
     background-color: rgba(15, 15, 15, 0.87);
     box-shadow: 0 0 10px rgba(56, 56, 56, 0.2);
-    border-bottom-left-radius: .2rem;
+    border-bottom-left-radius: .3rem;
 }
 
 .eraserContainer>button {
@@ -60,6 +61,10 @@
 
 .eraserContainer>button.active {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+.eraserContainer.collapsed {
+    border-bottom-right-radius: .3rem;
 }
 
 .eraserIcon {
@@ -106,7 +111,6 @@
     top: 3.7rem;
     right: 3rem;
     z-index: 100;
-    border-top: .3px solid rgba(255, 255, 255, 0.144);
     background-color: rgba(15, 15, 15, 0.87);
     border-radius: 0 0 10px 10px;
     box-shadow: 0 0 10px rgba(56, 56, 56, 0.2);

@@ -16,7 +16,7 @@ export default function Toolbox() {
     return (
         <div className={classes.toolboxContainer}>
             {activeTool === 'freeDraw' &&
-                <div className={classes.eraserContainer}>
+                <div className={`${classes.eraserContainer} ${collapsed ? classes.collapsed : ''}`}>
                     <button className={erase ? classes.active : ''} onClick={() => { setErase(!erase) }}>
                         <Image className={classes.eraserIcon} src={EraserIcon} alt="Eraser" />
                     </button>
